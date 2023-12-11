@@ -12,7 +12,6 @@
                 @foreach (App\Models\Course::get() as $course)
                     <option value="{{ $course->id }}">{{ $course->name }}</option>
                 @endforeach
-                <option value="2">asdadadsds</option>
             </select>
         </div>  
         <div class="mt-4">

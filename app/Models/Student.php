@@ -9,10 +9,15 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $with = ['course'];
+    protected $with = ['course', 'grades'];
 
     public function course()
     {
         return $this->belongsTo(Course::class);
+    }
+
+    public function grades()
+    {
+        return $this->hasMany(Grade::class, 'student_id');
     }
 }

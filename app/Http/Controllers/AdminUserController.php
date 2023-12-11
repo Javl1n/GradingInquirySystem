@@ -17,7 +17,7 @@ class AdminUserController extends Controller
     public function show(Student $student)
     {
         return view('admin.users.show', [
-            'students' => $student
+            'student' => $student,
         ]);
     }
 }

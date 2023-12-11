@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Course;
 use App\Models\Student;
+use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -30,6 +31,25 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin123',
         ]);
 
-        Course::factory(3)->create();
+        Course::factory()->create([
+            'name' => 'Bachelor of Science in Information Technology'
+        ]);
+
+        Course::factory()->create([
+            'name' => 'Bachelor of Science in Agriculture major in Horticulture'
+        ]);
+        Course::factory()->create([
+            'name' => 'Bachelor of Science in Civil Engineering'
+        ]);
+        Subject::create([
+            'code' => 'IT 224',
+            'description' => 'Information Management',
+        ]);
+
+        Student::factory()->create([
+            'school_id' => '2022-00360',
+            'name' => 'Frank Leimbergh D. Armodia',
+            'password' => 'armodia_fl'
+        ]);
     }
 }

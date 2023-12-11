@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminSubjectController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +30,11 @@ Route::group(['middleware' => ['admin', 'auth', 'verified'], 'prefix' => 'admin'
     })->name('admin.dashboard');
 
     Route::get('/users', [AdminUserController::class, 'index'])->name('admin.users.index');
-    Route::get('/users/{user:school_id}', [AdminUserController::class, 'show'])->name('admin.users.show');
-
+    Route::get('/users/{student:school_id}', [AdminUserController::class, 'show'])->name('admin.users.show');
+    
     Route::get('/subjects', [AdminSubjectController::class, 'index'])->name('admin.subjects.index');
+
+    Route::get('/courses', [AdminCourseController::class, 'index'])->name('admin.courses.index');
 });
 
 Route::middleware('auth')->group(function () {
