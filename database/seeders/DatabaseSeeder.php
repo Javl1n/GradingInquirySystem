@@ -8,6 +8,7 @@ use App\Models\Student;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,13 +22,11 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'John Cator',
             'email' => 'jcator@gmail.com',
-            'admin' => true,
-            'password' => 'admin123',
+        'password' => 'admin123',
         ]);
         User::factory()->create([
             'name' => 'Frank Leimbergh D. Armodia',
             'email' => 'farmodia@gmail.com',
-            'admin' => true,
             'password' => 'admin123',
         ]);
 
@@ -49,7 +48,7 @@ class DatabaseSeeder extends Seeder
         Student::factory()->create([
             'school_id' => '2022-00360',
             'name' => 'Frank Leimbergh D. Armodia',
-            'password' => 'armodia_fl'
+            'password' => Hash::make('armodia_fl')
         ]);
     }
 }
